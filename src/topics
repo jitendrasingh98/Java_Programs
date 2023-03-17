@@ -1,0 +1,30 @@
+basic concept
+oops:
+     ->class and objects
+     ->methods and method overloading
+     ->Constructor
+     ->String
+     ->this keyword
+     ->final keyword
+     ->static keyword
+     ->super keyword
+     ->Recursion
+     ->Inheritance
+     ->Polymorphism
+     ->Encapsulation-Access Modifiers,Package
+     ->Abstraction-Abstract class,Interface
+     ->Nested and Inner class
+     ->Java Static class
+     ->Java Anonymous class
+     ->Java Singleton
+     ->Java enum class
+     ->Java enum Constructor
+     ->Java enum String
+     ->Java Reflection
+multithreading
+Collection Framework
+exception handling
+Java Vector
+Java Stack
+Java Wrapper Class
+Java Generics

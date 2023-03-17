@@ -1,0 +1,8 @@
+Java ArrayList class uses a dynamic array for storing the elements.
+It is Like an array , but there is no size limit.
+We can add and remove element anytime.
+We can not create an ArrayList of the primitive types such as int, float, char etc.
+It is required to use the required wrapper class.
+Example:
+         ArrayList<int> list = ArrayList<>(); //this is not work or wrong Syntax
+         ArrayList<Integer> list ArrayList<>();//this is right syntax.

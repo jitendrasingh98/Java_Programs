@@ -1,0 +1,3 @@
+we can solve producer consumer problem using multithreading
+we used synchronized keyword to synchronized both threads one by one and
+we used inter thread connectivity to connect both threads.

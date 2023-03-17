@@ -1,0 +1,28 @@
+Multithreading is a process of executing multiple threads simultaneously.
+Thread is a lightweight sub process, the smallest unit of processing.
+Creating Thread:
+     -> Using Runnable // Interface
+     ->Using Thread // Class
+
+Life Cycle of Thread:
+                     New--(start)-->Runnable---->Running---[run() method exits or stop()]--->Terminated
+                                      (Active State)--[sleep(),block() on I/O,wait()for lock,suspend(),wait()]-->Blocked-->Runnable
+
+Thread Operations:
+->Thread class provides methods to perform operations with threads.
+->This thread class is present in java.lang package.So we don't need to import this package.
+
+A Java process to running thread:
+Main thread---->thread A----->thread B
+
+Some important thread methods:
+-> public string getName()-->Returns the name of the thread
+->public void setName(String name)-->Set the name of thread
+->public void run()-->contain the task of thread
+->public ovid start()-->Start thread  by allocating resources
+->public long getId()-->Returns the id of thread
+->setPriority(p),getPriority()-->set and get priority
+->sleep()
+->join()
+->interrupt()
+->stop()
