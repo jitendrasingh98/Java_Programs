@@ -6,9 +6,9 @@ public class EvenOdd {
         System.out.println("Enter  Number : ");
         int num=sc.nextInt();
         if(num%2==0){
-            System.out.println("Number is Even.");
+            System.out.println(num+"is Even.");
         }
         else
-            System.out.println("Number is Odd.");
+            System.out.println(num+" is Odd.");
     }
 }
