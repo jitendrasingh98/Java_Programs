@@ -1,0 +1,27 @@
+->String is the collection of character type array
+some important string functions
+->charAt() -->return character of particular index
+->length() -->return length of the string
+->indexOf() -->return index of particular character
+->compareTo() -->compare to strings and return 0,positive and negative value
+syntax: str1.compareTo(str2);
+-->if str1==str2 then result will be 0
+-->if str1>str2 then result will be positive number
+-->if str1<str2 then result will be negative number
+
+->contains() -->return tre or false
+exp: String str = "jitendra singh";
+     sout(str.contains("singh"));->return true
+     sout(str.contains("hello"));->return false
+
+->starsWith() -->return true or false
+  sout(str.startsWith("jit"));->check string start with 'jit' or not
+->endsWith() -->return true or false
+  sout(str.endsWith("singh"))'->check string end with 'singh' or not
+
+->toLowerCase() -->convert to lower case
+->toUpperCase() -->convert to upper case
+->concat() --> merge two strings
+->substring -->continuous part of string
+  substring(i,j) ->print substring from ith index to (j-1) index
+  substring(i) ->print substring starting form ith index
