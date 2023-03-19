@@ -25,3 +25,53 @@ exp: String str = "jitendra singh";
 ->substring -->continuous part of string
   substring(i,j) ->print substring from ith index to (j-1) index
   substring(i) ->print substring starting form ith index
+
+->Immutability of strings -->we cannot change string or particular character in string
+                          -->we can change the reference but not string
+   String str ="hello";
+   str=str.substring(0,2)+'y'+str.substring(3);
+   sout(str);-->heylo//create new string but cannot change old string
+
+->Performance of string -->poor performance because of immutability
+
+->str.equals() and ==
+     String str1 ="hello";
+     String str2 ="hello";
+     String str3 = new String("hello");
+     (str1==str2)-->true // same address -->check address only
+     (str1==str3)-->false//diff address
+
+   -->str1.equals(str3)-->true //check address as well as string also
+
+****************      Java StringBuilder Class    *****************
+
+->Java StringBuilder Class is used to create mutable(modifiable) String.
+-->important constructors of StringBuilder class
+   ->StringBuilder(); -->it creates an empty String Builder with the initial capacity of 16.
+   ->StringBuilder(String str);-->it creates a String Builder with specific.
+   ->StringBuilder(int capacity);-->it creates an empty String Builder with the specific capacity as length.
+
+->Important Methods of String Builder Class:
+    --> append(string str) -->it is used to append the specific string with this string.
+        append(char),append(boolean),append(int),append(float),append(double) etc.
+
+    --> setCharAt(index,char) -->change character at specific index.
+    exp:       StringBuilder str = new StringBuilder("hello");
+               str.setCharAt(0,'j');//replace/change 0th index character with j
+               sout(str)-->jello
+
+    --> insert(index,String s) -->insert the specific string with the string at the specific position.
+        insert(index,char),insert(index,int),insert(index,float),insert(index,boolean),insert(index,double) etc.
+        exp:    StringBuilder str = new StringBuilder("hello");
+                sout(str)-->hello
+                str.insert(2,"java");//insert java starting with 2nd index
+                sout(str)-->hejavallo
+
+    -->reverse() -->it is used to reverse the string.
+    -->deleteCharAt(index) -->delete value of specific index
+               str.deleteCharAt(2);//delete value present at 2nd index
+    -->delete(start index,end index)-->delete value between given range
+      exp:     StringBuilder str = new StringBuilder("hello");
+               sout(str);-->hello
+               str.delete(0,3)//delete value from 0 to 2 index
+               sout(str)-->lo
