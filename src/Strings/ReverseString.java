@@ -6,11 +6,11 @@ public class ReverseString {
         System.out.println("Enter String :");
         String str = scan.nextLine();
         System.out.println("Original String : "+str);
-        String reversestr=" ";
+        String revstr=" ";
         for(int i=str.length()-1;i>=0;i--){
-            reversestr=reversestr+str.charAt(i);
+            revstr=revstr+str.charAt(i);
         }
-        System.out.println("Reverse String : "+reversestr);
+        System.out.println("Reverse String : "+revstr);
 
     }
 }
