@@ -23,7 +23,7 @@ public class RecursiveBinarySearch {
         System.out.println("Enter the size of an array : ");
         int size = scan.nextInt();
         System.out.println("Enter Array Element in Increment Order :");
-        int arr[] = new int[size];
+        int[] arr = new int[size];
         for (int i=0;i<size;i++){
             arr[i] = scan.nextInt();
         }
