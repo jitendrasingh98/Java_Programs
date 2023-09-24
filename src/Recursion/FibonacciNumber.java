@@ -4,13 +4,15 @@ import java.util.Scanner;
 
 public class FibonacciNumber {
     static int fabonacci(int nterm){
-       if (nterm==0){
+       //base case
+        if (nterm==0){
            return 0;
        }
        else if (nterm==1) {
            return 1;
        }
        else {
+           //recursive relation
           return fabonacci(nterm-1)+fabonacci(nterm-2);
        }
     }
