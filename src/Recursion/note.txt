@@ -1,0 +1,55 @@
+Recursion : when function called itself
+example ->  fun(){
+               some task;
+               fun();
+            }
+
+Recursion required two things
+1. Base Case : it is mandatory
+             : to stop program(
+             : if we not use Base Case the program give stackoverflow error(because program rum
+               until stack not full).
+             : Used return
+2.Recursive Relation : Define the relationship between the problem and into one or more smaller Problems
+                       of same kind.
+
+*************************************************************************************
+
+type of recursion :
+1.Direct Recursion : when one function called itself directly
+                    fun(A){
+                    -----
+                    -----
+                    fun(A);
+                    }
+
+A.  Tail Recursion :
+                       fun(A){
+                           base case
+
+                           Processing(some task)
+
+                           Recursive Relation
+                       }
+
+B. Head Recursion :
+                    fun(A){
+                       base case
+
+                       Recursive Relation
+
+                       Processing(some task)
+                    }
+
+
+2.Indirect Recursion : when one function called another and another function called first function.
+                          fun(a){
+                           -------
+                           -------
+                           fun(b);
+                          }
+                          fun(b){
+                          -------
+                          -------
+                          fun(a);
+                          }
