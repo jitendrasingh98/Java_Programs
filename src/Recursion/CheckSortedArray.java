@@ -16,8 +16,7 @@ public class CheckSortedArray {
             return false;
         }
         else {
-            boolean remainingPartOfArray = isSorted(arr,size-1);
-            return remainingPartOfArray;
+            return isSorted(arr,size-1);
         }
 
     }
