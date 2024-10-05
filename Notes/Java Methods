@@ -1,0 +1,242 @@
+************      JAVA METHODS       ************
+
+-> block of code performing some action which runs only when it is called.
+-> In Simple Word , Function/Methods Take Input, Perform Operations And gives Output
+-> Write once use many times
+-> Provides Code Reusability
+-> reduce duplicate code
+
+Method Declaration:
+-> The method declaration provides information about method attributes,
+   such as visibility, return-type, name, and arguments.
+Syntax:
+
+ <access_modifier> <return_type> <method_name>( list_of_parameters)
+    {
+      //Operations
+    }
+
+ Note: Use of Access Modifier is optional
+
+components of method declaration:
+Method Signature:
+-> Every method has a method signature.
+   It is a part of the method declaration.
+   It includes the method name and parameter list.
+
+Access Specifier:
+-> Access specifier or modifier is the access type of the method.
+-> It specifies the visibility of the method.
+Java provides four types of access specifier:
+
+1. Public:
+ The method is accessible by all classes when we use public specifier in our application.
+2. Private:
+When we use a private access specifier, the method is accessible only in the classes in which it is defined.
+3. Protected:
+When we use protected access specifier, the method is accessible within the same package or subclasses in a different package.
+4. Default:
+ When we do not use any access specifier in the method declaration, Java uses default access specifier by default. It is visible only from the same package only.
+
+Return Type:
+-> Return type is a data type that the method returns.
+-> It may have a primitive data type, object, collection, void, etc.
+-> If the method does not return anything, we use void keyword.
+
+Method Name:
+-> It is a unique name that is used to define the name of a method.
+-> It must be corresponding to the functionality of the method. Suppose, if we are creating a method for subtraction of two numbers, the method name must be subtraction().
+-> A method is invoked by its name.
+
+Parameter List:
+-> It is the list of parameters separated by a comma and enclosed in the pair of parentheses.
+-> It contains the data type and variable name.
+-> If the method has no parameter, left the parentheses blank.
+
+Method Body:
+-> It is a part of the method declaration.
+-> It contains all the actions to be performed.
+-> It is enclosed within the pair of curly braces.
+
+
+
+                         types of method
+
+1. Standard Library Methods / Predefined Methods
+
+-> In Java, predefined methods are the method that is already defined in the Java class libraries is known as
+   predefined methods. It is also known as the standard library method or built-in method.
+   We can directly use these methods just by calling them in the program at any point.
+   Some pre-defined methods are length(), equals(), compareTo(), sqrt(), etc.
+
+   Example:
+
+   public class Demo
+   {
+   public static void main(String[] args)
+   {
+   // using the max() method of Math class
+   System.out.print("The maximum number is: " + Math.max(9,7));
+   }
+   }       // output -> 9
+
+
+2. User Defined Method
+
+-> The method written by the user or programmer is known as a user-defined method.
+   These methods are modified according to the requirement.
+  Example:
+
+   import java.util.Scanner;
+   public class EvenOdd
+   {
+   public static void main (String args[])
+   {
+   //creating Scanner class object
+   Scanner scan=new Scanner(System.in);
+   System.out.print("Enter the number: ");
+   //reading value from user
+   int num=scan.nextInt();
+
+   //method calling
+   findEvenOdd(num);
+   }
+
+   //user defined method
+   public static void findEvenOdd(int num)
+   {
+   //method body
+   if(num%2==0)
+   System.out.println(num+" is even");
+   else
+   System.out.println(num+" is odd");
+   }
+   }
+
+
+Static Method :
+-> A method that has static keyword is known as static method.
+-> A method that belongs to a class rather than an instance of a class(Object) is known as a static method.
+-> We can call static method without creating an object.
+Example:
+
+public class Display
+{
+public static void main(String[] args)
+  {
+    show();  //method call
+  }
+static void show()
+  {
+      System.out.println("It is an example of static method.");
+  }
+}
+
+
+Instance Method:
+-> It is a non-static method defined in the class.
+-> Before calling or invoking the instance method, it is necessary to create an object of its class.
+Example:
+
+public class InstanceMethodExample
+{
+public static void main(String [] args)
+   {
+         //Creating an object of the class
+         InstanceMethodExample obj = new InstanceMethodExample();
+
+         //invoking instance method
+          System.out.println("The sum is: "+obj.add(12, 13));
+   }
+
+int s;
+
+//user-defined method because we have not used static keyword
+public int add(int a, int b)
+  {
+     s = a+b;
+     //returning the sum
+      return s;
+  }
+}
+
+Abstract Method:
+-> The method that does not has method body is known as abstract method.
+-> It always declares in the abstract class.
+   It means the class itself must be abstract if it has abstract method.
+->  To create an abstract method, we use the keyword abstract.
+Example :
+
+abstract class Demo //abstract class
+{
+   //abstract method declaration
+   abstract void display();
+}
+
+public class MyClass extends Demo
+{
+    //method impelmentation
+void display()
+  {
+     System.out.println("Abstract method?");
+  }
+public static void main(String args[])
+ {
+    //creating object of abstract class
+     Demo obj = new MyClass();
+    //invoking abstract method
+     obj.display();
+ }
+}
+
+#################  Method overloading  ####################
+
+-> If a class has multiple methods having same name but different in parameters, it is known as Method Overloading.
+-> Method overloading increases the readability of the program.
+
+There are two ways to overload the method in java
+1.By changing number of arguments
+2.By changing the data type
+
+Note: In Java, Method Overloading is not possible by changing the return type of the method only.
+
+1. Changing Number of arguments :
+
+class Adder
+{
+  static int add(int a,int b)
+  {
+    return a+b;
+  }
+  static int add(int a,int b,int c)
+  {
+    return a+b+c;
+  }
+}
+class TestOverloading1
+{
+  public static void main(String[] args)
+  {
+     System.out.println(Adder.add(11,12));
+     System.out.println(Adder.add(11,12,13));
+  }
+}
+
+2.  changing data type of arguments :
+
+class Adder{
+   static int add(int a, int b)
+   {
+       return a+b;
+   }
+   static double add(double a, double b)
+   {
+       return a+b;
+   }
+}
+class TestOverloading2{
+   public static void main(String[] args){
+       System.out.println(Adder.add(11,11));
+       System.out.println(Adder.add(12.3,12.6));
+   }
+}
