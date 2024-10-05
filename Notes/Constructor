@@ -1,0 +1,190 @@
+***********************       Constructor      **************************
+
+-> Constructor is block of code similar to the method.
+-> Constructor is a special method which is invoked automatically at the time of object creation.
+-> It is used to initialize the data members of new object generally.
+-> Constructor have the same name as class.
+-> Does not have a return type(not even void).
+-> Constructor are only called once,at object creation.
+-> It is called constructor because it construct a value at the time of object creation.
+-> There can be multiple constructors in the same class, this concept is known as constructor overloading.
+---> 3 types of Constructor--->
+1.Default Constructor
+2.No-Arguments Constructor
+3.Parameterized Constructor
+
+1.Default Constructor :
+-> If we not create any constructor in the class , Java provides a default constructor that initialize the object.
+-> Automatically created by compiler.
+-> Doesn't have any parameter.
+-> same as No-Args Constructor.
+-> Default constructor provides the default value to the object.
+    String->null     int->0
+Example:
+class Student{
+   String name;
+   int age;
+}
+public class Main{
+ public  static void main(String[] args){
+     //default constructor invoke here
+     Student st = new Student();
+     System.out.println(st.name+" "+st.age);//output : null 0
+     }
+ }
+
+
+2.Non-Parameterized Constructor:
+-> A Constructor which has no argument
+-> It is invoked at the time of creation an object.
+-> If we don't create one then its created by default by java.
+-> Same as Default constructor.
+Example:
+class Student{
+   String name;
+   int age;
+   Student(){
+       name="Jitu";
+       age=26;
+   }
+}
+public class Main{
+ public  static void main(String[] args){
+
+     Student st = new Student();
+     System.out.println(st.name+" "+st.age);//output : Jitu 26
+     }
+ }
+3.Parameterized Constructor
+-> A constructor with one or more arguments/ parameters is called Parametrized Constructor.
+-> Provides different values to distinct object.
+-> If we need to initialize fields of the class with our own values, then use a parameterized constructor.
+Example:
+class Student {
+    String name;
+    int age;
+
+    Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student st = new Student("Jitu", 26);
+        System.out.println(st.name + " " + st.age);
+    }
+}
+
+Constructor not supported by Java
+1.Copy Constructor :
+-> Java does not have a built-in copy constructor like C++,
+   but you can create one by defining a constructor that takes an object of the same class.
+Example:
+class Dog {
+    String name;
+    int age;
+    // Parameterized constructor
+    Dog(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    // Copy constructor
+    Dog(Dog dog) {
+        this.name = dog.name;
+        this.age = dog.age;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Dog originalDog = new Dog("Buddy", 3);
+        Dog copiedDog = new Dog(originalDog);
+        System.out.println(copiedDog.name);  // Output: Buddy
+        System.out.println(copiedDog.age);   // Output: 3
+    }
+}
+
+2.Static Constructor:
+-> Java does not have static constructors in the same sense as languages like C#. However,
+   you can use a static block to initialize static fields.
+Example:
+class Dog {
+    static int dogCount;
+    static {
+        dogCount = 0; // Static initializer block
+    }
+    Dog() {
+        dogCount++;
+    }
+    static int getDogCount() {
+        return dogCount;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Dog dog1 = new Dog();
+        Dog dog2 = new Dog();
+        System.out.println(Dog.getDogCount());  // Output:  2
+    }
+}
+
+ ####  Constructor Overloading  ####
+-> Constructor overloading in Java refers to the ability to define multiple constructors within the same class,
+   each having different parameter lists.
+-> This allows objects of the class to be initialized in different ways based on the arguments passed.
+Key Points of Constructor Overloading:
+1.Same Name: All overloaded constructors must have the same name as the class.
+2.Different Parameter Lists: They must differ in the type, number, or order of parameters.
+Example:
+// Creating a Student Class
+class Student {
+  String name;
+  int age;
+
+  // no-args constructor
+  Student() {
+    this.name = "Jitu";
+    this.age = 2;
+  }
+
+  // parameterized constructor having one parameter
+  Student(String name) {
+    this.name = name;
+   this.age = 0;//default value
+  }
+
+  // parameterized constructor having both parameters
+  Student(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
+
+ // Method to display student details
+  public void printDetails() {
+    System.out.println("Name : " + this.name);
+    System.out.println("Age : " + this.age);
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Student std1 = new Student(); // invokes no-args constructor
+    Student std2 = new Student("Jordan"); // invokes parameterized constructor
+    Student std3 = new Student("Paxton", 25); // invokes parameterized constructor
+
+    // Printing details
+    System.out.println("Student 1:");
+    std1.printDetails();
+    System.out.println();//for new line
+
+    System.out.println("Student 2:");
+    std2.printDetails();
+    System.out.println();//for new line
+
+    System.out.println("Student 3:");
+    std3.printDetails();
+  }
+}
+
+
