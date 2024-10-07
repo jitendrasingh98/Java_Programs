@@ -1,4 +1,4 @@
-package OOPS;
+package OOPS.Inheritance;
 class Shape{
     String color;
 

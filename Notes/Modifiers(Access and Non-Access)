@@ -1,0 +1,14 @@
+Modifiers :
+-> In Java, modifiers are keywords that define the properties of classes, methods, variables, and other elements.
+-> Two types :
+1. Access Modifier
+2.Non-Access Modifiers
+
+1. Access Modifiers :
+-> The access modifiers in Java specifies the accessibility or scope of a field, method, constructor, or class.
+-> We can change the access level of fields, constructors, methods, and class by applying the access modifier on it.
+Types:
+1.Default -> No keyword required
+2.Public
+3.Private
+4.Protected

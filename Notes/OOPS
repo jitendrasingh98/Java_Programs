@@ -235,7 +235,223 @@ public class Main {
 
 -> When one Object acquires all the properties and behavior of parent object ,it id known
    as Inheritance.
--> It provides code reusability.
+-> Followed IS-A Relationship also known as parent-child Relationship.
+
+Inheritance provides:
+-> Method Overriding -> To achieve Runtime Polymorphism
+-> Code Reusability
+
+Terminology used in Inheritance:
+Class:
+-> A class is a group of objects which have common properties.
+-> It is a template or blueprint from which objects are created.
+Sub Class/Child Class:
+-> Subclass is a class which inherits the other class.
+-> It is also called a derived class, extended class, or child class.
+Super Class/Parent Class:
+-> Superclass is the class from where a subclass inherits the features.
+-> It is also called a base class or a parent class.
+Reusability:
+-> Reusability is a mechanism which facilitates you to reuse the fields and methods of the existing class when you create a new class.
+-> You can use the same fields and methods already defined in the previous class.
+
+syntax:
+class Subclass-name extends Superclass-name
+ {
+   //methods and fields
+ }
+-> The extends keyword indicates that you are making a new class that derives from an existing class.
+-> The meaning of "extends" is to increase the functionality.
+
+Types of Inheritance:
+1.Single Inheritance
+2.Multilevel Inheritance
+3.Hierarchical Inheritance
+4.Multiple Inheritance -> Not Supported by Java but we can achieve through Interfaces.
+5.Hybrid Inheritance
+
+1. Single Inheritance:
+-> a sub-class is derived from only one super class.
+-> It inherits the properties and behavior of a single-parent class.
+-> ALso known as simple inheritance.
+Example:
+//parents class
+class Parent {
+
+    // parent class method
+    void show() {
+        System.out.println("This is Parent Class.");
+    }
+}
+class Child extends Parent{
+    void display(){
+        System.out.println("This is child class");
+    }
+}
+    public class SimpleInheritance  {
+        public static void main(String[] args) {
+            //create object of child class
+            Child child = new Child();
+            child.show();//calling parent method
+            child.display();
+        }
+    }
+
+2.Multilevel Inheritance :
+-> a derived class will be inheriting a base class,
+   and as well as the derived class also acts as the base class for other classes.
+Example:
+   //parent class know as super class
+   class A{
+       void show(){
+           System.out.println("This is parent class.");
+       }
+   }
+
+   // child class know as subclass -> base/parent class for C
+   class B extends A{
+       void display(){
+           System.out.println("This is child class.");
+       }
+   }
+
+   //grand child class - subclass of child class
+   class C extends B{
+       void print(){
+           System.out.println("This is grand child class");
+       }
+   }
+
+   public class MultiLevelInheritance {
+       public static void main(String[] args) {
+           C c = new C();
+           c.show();//accessing super class method
+           c.display();//accessing method of parent class of C
+           c.print();
+       }
+   }
+
+3.Hierarchical Inheritance:
+-> ne class serves as a superclass (base class) for more than one subclass.
+Example:
+package OOPS.Inheritance;
+
+//parent class - super class
+class Animal{
+   void show(){
+       System.out.println("Super Class");
+   }
+}
+
+//subclass1
+class Dog extends Animal{
+    void bark(){
+        System.out.println("Barking");
+    }
+}
+
+//child class2 - subclass2
+class Cat extends Animal{
+    void meow(){
+        System.out.println("Meowing");
+    }
+}
+public class HierarchicalInheritance {
+    public static void main(String[] args) {
+        //create method of first child class
+        Dog d = new Dog();
+
+        d.show();//accessing parent class method
+        d.bark();
+
+        //second subclass object
+        Cat c =new Cat();
+        c.show();// accessing parent class method
+        c.meow();
+    }
+}
+
+
+4.Multiple Inheritance (Through Interfaces):
+-> one class can have more than one superclass and inherit features from all parent classes.
+-> Java does not support multiple inheritances with classes.
+-> In Java, we can achieve multiple inheritances only through Interfaces.
+Example:
+// Define the first interface
+interface CanFly {
+    void fly();
+}
+// Define the second interface
+interface CanSwim {
+    void swim();
+}
+// Class that implements both interfaces
+class Duck implements CanFly, CanSwim {
+    @Override
+    public void fly() {
+        System.out.println("The duck is flying.");
+    }
+    @Override
+    public void swim() {
+        System.out.println("The duck is swimming.");
+    }
+}
+
+public class MultipleInheritanceThroughInterface {
+    public static void main(String[] args) {
+        Duck duck = new Duck();
+        duck.fly();
+        duck.swim();
+    }
+}
+
+5.Hybrid Inheritance
+->It is a mix of two or more types of inheritance.
+In java:
+-> Mix of Single and Multilevel
+-> Mix of Single and Hierarchical
+-> Mix of Multilevel and Hierarchical
+-> Mix of all three
+Example:
+// Base class
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+// Intermediate class
+class Bird extends Animal {
+    void fly() {
+        System.out.println("The bird is flying.");
+    }
+}
+
+// Derived class that extends Bird
+class Duck extends Bird {
+    void quack() {
+        System.out.println("The duck is quacking.");
+    }
+}
+
+// Main class to test the Duck class
+public class Main {
+    public static void main(String[] args) {
+        Duck duck = new Duck();
+        duck.eat();  // Inherited from Animal
+        duck.fly();  // Inherited from Bird
+        duck.quack(); // Specific to Duck
+    }
+}
+
+Disadvantages of Inheritance
+Complexity:
+-> Inheritance can make the code more complex and harder to understand.
+Tight Coupling:
+-> Inheritance creates a tight coupling between the superclass and subclass,
+   making it difficult to make changes to the superclass without affecting the subclass.
+
+
 
 ********************    Polymorphism    ***************************
 

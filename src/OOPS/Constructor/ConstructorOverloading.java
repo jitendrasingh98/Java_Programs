@@ -24,8 +24,8 @@ class Students{
 
     //Method To Display Student Details
     public void Display(){
-        System.out.println("Name : "+this.name);
-        System.out.println("Age :"+this.age);
+        System.out.println("Name : "+name);
+        System.out.println("Age :"+age);
     }
 }
 public class ConstructorOverloading {
