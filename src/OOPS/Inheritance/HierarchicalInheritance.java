@@ -1,36 +1,36 @@
 package OOPS.Inheritance;
 
 //parent class - super class
-class Animal{
+class SingleParent{
    void show(){
-       System.out.println("Super Class");
+       System.out.println("This is super Class for both child class/subclass.");
    }
 }
 
 //subclass1
-class Dog extends Animal{
-    void bark(){
-        System.out.println("Barking");
+class Child1 extends SingleParent{
+    void print(){
+        System.out.println("Child1");
     }
 }
 
 //child class2 - subclass2
-class Cat extends Animal{
-    void meow(){
-        System.out.println("Meowing");
+class Child2 extends SingleParent{
+    void display(){
+        System.out.println("Child2");
     }
 }
 public class HierarchicalInheritance {
     public static void main(String[] args) {
         //create method of first child class
-        Dog d = new Dog();
+        Child1 c1 = new Child1();
 
-        d.show();//accessing parent class method
-        d.bark();
+        c1.show();//accessing parent class method
+        c1.print();
 
         //second subclass object
-        Cat c =new Cat();
-        c.show();// accessing parent class method
-        c.meow();
+        Child2 c2 =new Child2();
+        c2.show();// accessing parent class method
+        c2.display();
     }
 }

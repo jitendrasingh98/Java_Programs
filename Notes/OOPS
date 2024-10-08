@@ -332,7 +332,8 @@ Example:
    }
 
 3.Hierarchical Inheritance:
--> ne class serves as a superclass (base class) for more than one subclass.
+-> A class serves as a superclass (base class) for more than one subclass.
+-> Multiple subclass inherits from a single super class.
 Example:
 package OOPS.Inheritance;
 
