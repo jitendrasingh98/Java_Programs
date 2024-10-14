@@ -1,0 +1,120 @@
+******************   Abstraction   *****************
+
+-> Abstraction is a process of hiding data implementation details from the user, only the functionality will be provide to the user.
+-> Data hiding ( implementation hiding from the user)
+ex: TV Remote :User shows only functionality of tv remote not internal working.
+
+Achieve Abstraction by:
+1.Using Abstract class--0 to 100%
+2.Using Interfaces--- 100%
+
+Abstract Keyword:
+-> Abstract is a non-access modifier in java application for classes and method but not variables.
+-> Abstract keyword used to define abstract classes and methods.
+
+Abstract Class:
+-> A Java Class which contains the abstract keyword in its declaration is known as abstract class.
+
+Rules for abstract class:
+-> Must be declared with an abstract keyword.
+-> It can have abstract and non-abstract method.
+-> If a class has at least one abstract method, then the class must be declared abstract.
+-> Abstract classes can not be instantiated means we can not create an object of abstract class.
+-> it can have constructor and static method also.
+-> it can have final method which will force the subclass not to change the body of the method.
+
+Abstract Method:
+-> Declared with abstract keyword.
+-> A Method without body(no implementation) known as abstract method.
+ex->abstract void show();
+
+Example:
+package OOPS.Abstraction;
+ abstract class Vehicle{
+    abstract void start();
+ }
+ class Car extends Vehicle{
+     void start(){
+         System.out.println("This is Car.");
+     }
+ }
+ class Bike extends Vehicle{
+     @Override
+     void start() {
+         System.out.println("This is bike class.");
+     }
+ }
+public class AbstractClassAndMethod {
+    public static void main(String[] args) {
+        Car c =new Car();
+        c.start();
+        Bike b = new Bike();
+        b.start();
+    }
+}
+
+
+***************   Interface  ******************
+-> Used to achieve 100% abstraction
+-> Can not create object of interface.
+-> Collection of abstract methods.
+-> Blueprint of a class.
+-> Used to achieve Multiple Inheritance in Java.
+-> Follow IS-A relationship.
+-> used to achieve loose Coupling.
+syntax:
+interface <interface_name>
+{
+//declare constant fields
+//declared abstract method
+}
+
+Example:
+package OOPS.Abstraction;
+
+interface Print{
+    abstract void print();
+}
+class Display implements Print{
+    public void print(){
+        System.out.println("This is print class implements print interface.");
+    }
+}
+public class InterfaceExample  {
+    public static void main(String[] args) {
+        //we cant create object of an interface
+
+        Display obj = new Display();
+       obj.print();
+    }
+}
+
+
+Multiple Inheritance (Through Interfaces):
+-> one class can have more than one superclass and inherit features from all parent classes.
+-> Java does not support multiple inheritances with classes.
+-> In Java, we can achieve multiple inheritances only through Interfaces.
+Example:
+package OOPS.Abstraction;
+
+interface One{
+   abstract void show();
+}
+interface Two{
+    abstract void print();
+}
+class Child implements One,Two{
+    public void show(){
+        System.out.println("This is First Interface");
+    }
+    public void print(){
+        System.out.println("This is Second interface");
+    }
+}
+public class MultipleInheritance {
+    public static void main(String[] args) {
+        Child obj = new Child();
+        obj.show();
+        obj.print();
+    }
+}

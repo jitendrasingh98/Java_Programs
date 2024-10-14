@@ -1,0 +1,91 @@
+*******************   Polymorphism   ********************
+-> Polymorphism means having many forms
+-> we can define Java Polymorphism as the ability of a message to be displayed in more than one form
+->Real-life Illustration of Polymorphism in Java: A person can have different characteristics at the same time.
+  Like a man at the same time is a father, a husband, and an employee.
+  So the same person possesses different behaviors in different situations. This is called polymorphism.
+
+ Typed of Polymorphism:
+1. Compile Time Polymorphism -> Method Overloading
+2. Run Time Polymorphism -> method Overriding
+
+1.Compile Time Polymorphism :
+-> It is also known as static polymorphism.
+-> If a class has multiple methods having same name but different in parameters, it is known as Method Overloading.
+
+There are two ways to overload the method in java
+1.By changing number of arguments
+2.By changing the data type
+
+1. Changing Number of arguments :
+
+class Adder
+{
+  static int add(int a,int b)
+  {
+    return a+b;
+  }
+  static int add(int a,int b,int c)
+  {
+    return a+b+c;
+  }
+}
+class TestOverloading1
+{
+  public static void main(String[] args)
+  {
+     System.out.println(Adder.add(11,12));
+     System.out.println(Adder.add(11,12,13));
+  }
+}
+
+2.By changing the data type :
+
+class Adder{
+   static int add(int a, int b)
+   {
+       return a+b;
+   }
+   static double add(double a, double b)
+   {
+       return a+b;
+   }
+}
+class TestOverloading2{
+   public static void main(String[] args){
+       System.out.println(Adder.add(11,11));
+       System.out.println(Adder.add(12.3,12.6));
+   }
+}
+
+2. Run Time Polymorphism :
+-> known as Dynamic Polymorphism
+-> If subclass has the same method as declared in the parent class, it is known as a method overloading in Java.
+-> Child class override the method of its parent class.
+Rules:
+1.The method must have the same name as in the parent class.
+2.The method must have the same parameter as in the parent class.
+3.There must be IS-A relationship(Inheritance).
+
+Example:
+package OOPS.Polymorphism;
+
+class Animal{
+    void sound(){
+        System.out.println("Animal Makes a sound");
+    }
+}
+class Dog extends Animal{
+    @Override
+    void sound() {
+        System.out.println("Dog Barks");
+    }
+}
+public class MethodOverridingExample {
+    public static void main(String[] args) {
+        Animal obj = new Animal();
+        obj.sound();
+        Dog d = new Dog();
+        d.sound();
+    }
+}

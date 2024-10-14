@@ -1,0 +1,62 @@
+*****************     Encapsulation   *****************
+
+-> Encapsulation is a process of wrapping data and code together in single unit.
+-> also called data binding - > Binding data in a single unit.
+
+Rules :
+1. Declare a variable of a class as private.
+2. Provide public getters and setters to modify and view the variables values.
+
+Why Use:
+-> The getters and setters methods provide  read only or write only access to our class fields.
+  get methods -- read only
+  set methods -- write only
+
+-> Encapsulation  helps to decouple components of a system.we can encapsulate code into multiple bundles.
+-> Used to achieved data hiding
+
+Example:
+package OOPS.Encapsulation;
+
+class Person{
+   private String name;
+   private int age;
+
+   //setter methods
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    //getters
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+}
+public class EncapsulationExample {
+    public static void main(String[] args) {
+        Person p1 = new Person();
+        Person p2 = new Person();
+
+        //set value for p1
+        p1.setName("Abhay");
+        p1.setAge(23);
+
+        //set value for p2
+        p2.setName("Jitu");
+        p2.setAge(26);
+
+        System.out.println("Person 1 : Name : "+p1.getName()+", Age : "+p1.getAge());
+        System.out.println("Person 2 : Name : "+p2.getName()+", Age : "+p2.getAge());
+    }
+
+}

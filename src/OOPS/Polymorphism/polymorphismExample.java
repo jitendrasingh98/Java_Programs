@@ -1,4 +1,4 @@
-package OOPS;
+package OOPS.Polymorphism;
 //this is the example of compile time polymorphism/function overloading.
 
 class Student1{

@@ -171,6 +171,7 @@ public class Main {
 
 
  ####  Constructor Overloading  ####
+
 -> Constructor overloading in Java refers to the ability to define multiple constructors within the same class,
    each having different parameter lists.
 -> This allows objects of the class to be initialized in different ways based on the arguments passed.
@@ -456,13 +457,279 @@ Tight Coupling:
 
 ********************    Polymorphism    ***************************
 
-->one name many form
-two types of polymorphism ..
-1.Compile Time Polymorphism -->function overloading
-->Same function name with different return type or arguments.
-example:
-public void print(String name){sout(name);}
-public void print(int age){sout(age);}
+-> Polymorphism means having many forms
+-> we can define Java Polymorphism as the ability of a message to be displayed in more than one form
+->Real-life Illustration of Polymorphism in Java: A person can have different characteristics at the same time.
+  Like a man at the same time is a father, a husband, and an employee.
+  So the same person possesses different behaviors in different situations. This is called polymorphism.
 
-2.Run Time polymorphism -->function overriding
+ Typed of Polymorphism:
+1. Compile Time Polymorphism -> Method Overloading
+2. Run Time Polymorphism -> method Overriding
 
+1.Compile Time Polymorphism :
+-> It is also known as static polymorphism.
+-> If a class has multiple methods having same name but different in parameters, it is known as Method Overloading.
+
+There are two ways to overload the method in java
+1.By changing number of arguments
+2.By changing the data type
+
+1. Changing Number of arguments :
+
+class Adder
+{
+  static int add(int a,int b)
+  {
+    return a+b;
+  }
+  static int add(int a,int b,int c)
+  {
+    return a+b+c;
+  }
+}
+class TestOverloading1
+{
+  public static void main(String[] args)
+  {
+     System.out.println(Adder.add(11,12));
+     System.out.println(Adder.add(11,12,13));
+  }
+}
+
+2.By changing the data type :
+
+class Adder{
+   static int add(int a, int b)
+   {
+       return a+b;
+   }
+   static double add(double a, double b)
+   {
+       return a+b;
+   }
+}
+class TestOverloading2{
+   public static void main(String[] args){
+       System.out.println(Adder.add(11,11));
+       System.out.println(Adder.add(12.3,12.6));
+   }
+}
+
+2. Run Time Polymorphism :
+-> known as Dynamic Polymorphism
+-> If subclass has the same method as declared in the parent class, it is known as a method overloading in Java.
+-> Child class override the method of its parent class.
+Rules:
+1.The method must have the same name as in the parent class.
+2.The method must have the same parameter as in the parent class.
+3.There must be IS-A relationship(Inheritance).
+
+Example:
+package OOPS.Polymorphism;
+
+class Animal{
+    void sound(){
+        System.out.println("Animal Makes a sound");
+    }
+}
+class Dog extends Animal{
+    @Override
+    void sound() {
+        System.out.println("Dog Barks");
+    }
+}
+public class MethodOverridingExample {
+    public static void main(String[] args) {
+        Animal obj = new Animal();
+        obj.sound();
+        Dog d = new Dog();
+        d.sound();
+    }
+}
+
+
+******************   Abstraction   *****************
+
+-> Abstraction is a process of hiding data implementation details from the user, only the functionality will be provide to the user.
+-> Data hiding ( implementation hiding from the user)
+ex: TV Remote :User shows only functionality of tv remote not internal working.
+
+Achieve Abstraction by:
+1.Using Abstract class--0 to 100%
+2.Using Interfaces--- 100%
+
+Abstract Keyword:
+-> Abstract is a non-access modifier in java application for classes and method but not variables.
+-> Abstract keyword used to define abstract classes and methods.
+
+Abstract Class:
+-> A Java Class which contains the abstract keyword in its declaration is known as abstract class.
+
+Rules for abstract class:
+-> Must be declared with an abstract keyword.
+-> It can have abstract and non-abstract method.
+-> If a class has at least one abstract method, then the class must be declared abstract.
+-> Abstract classes can not be instantiated means we can not create an object of abstract class.
+-> it can have constructor and static method also.
+-> it can have final method which will force the subclass not to change the body of the method.
+
+Abstract Method:
+-> Declared with abstract keyword.
+-> A Method without body(no implementation) known as abstract method.
+ex->abstract void show();
+
+Example:
+package OOPS.Abstraction;
+ abstract class Vehicle{
+    abstract void start();
+ }
+ class Car extends Vehicle{
+     void start(){
+         System.out.println("This is Car.");
+     }
+ }
+ class Bike extends Vehicle{
+     @Override
+     void start() {
+         System.out.println("This is bike class.");
+     }
+ }
+public class AbstractClassAndMethod {
+    public static void main(String[] args) {
+        Car c =new Car();
+        c.start();
+        Bike b = new Bike();
+        b.start();
+    }
+}
+
+
+***************   Interface  ******************
+-> Used to achieve 100% abstraction
+-> Can not create object of interface.
+-> Collection of abstract methods.
+-> Blueprint of a class.
+-> Used to achieve Multiple Inheritance in Java.
+-> Follow IS-A relationship.
+-> used to achieve loose Coupling.
+syntax:
+interface <interface_name>
+{
+//declare constant fields
+//declared abstract method
+}
+
+Example:
+package OOPS.Abstraction;
+
+interface Print{
+    abstract void print();
+}
+class Display implements Print{
+    public void print(){
+        System.out.println("This is print class implements print interface.");
+    }
+}
+public class InterfaceExample  {
+    public static void main(String[] args) {
+        //we cant create object of an interface
+
+        Display obj = new Display();
+       obj.print();
+    }
+}
+
+
+Multiple Inheritance (Through Interfaces):
+-> one class can have more than one superclass and inherit features from all parent classes.
+-> Java does not support multiple inheritances with classes.
+-> In Java, we can achieve multiple inheritances only through Interfaces.
+Example:
+package OOPS.Abstraction;
+
+interface One{
+   abstract void show();
+}
+interface Two{
+    abstract void print();
+}
+class Child implements One,Two{
+    public void show(){
+        System.out.println("This is First Interface");
+    }
+    public void print(){
+        System.out.println("This is Second interface");
+    }
+}
+public class MultipleInheritance {
+    public static void main(String[] args) {
+        Child obj = new Child();
+        obj.show();
+        obj.print();
+    }
+}
+
+
+*****************     Encapsulation   *****************
+
+-> Encapsulation is a process of wrapping data and code together in single unit.
+-> also called data binding - > Binding data in a single unit.
+
+Rules :
+1. Declare a variable of a class as private.
+2. Provide public getters and setters to modify and view the variables values.
+
+Why Use:
+-> The getters and setters methods provide  read only or write only access to our class fields.
+  get methods -- read only
+  set methods -- write only
+
+-> Encapsulation  helps to decouple components of a system.we can encapsulate code into multiple bundles.
+-> Used to achieved data hiding
+
+Example:
+package OOPS.Encapsulation;
+
+class Person{
+   private String name;
+   private int age;
+
+   //setter methods
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    //getters
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+}
+public class EncapsulationExample {
+    public static void main(String[] args) {
+        Person p1 = new Person();
+        Person p2 = new Person();
+
+        //set value for p1
+        p1.setName("Abhay");
+        p1.setAge(23);
+
+        //set value for p2
+        p2.setName("Jitu");
+        p2.setAge(26);
+
+        System.out.println("Person 1 : Name : "+p1.getName()+", Age : "+p1.getAge());
+        System.out.println("Person 2 : Name : "+p2.getName()+", Age : "+p2.getAge());
+    }
+
+}

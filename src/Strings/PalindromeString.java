@@ -8,12 +8,12 @@ public class PalindromeString {
         System.out.println("Enter String : ");
         String str = scan.nextLine();
         System.out.println("original String : "+str);
-        String revst = "";
+        String revstr = "";
         for(int i=str.length()-1;i>=0;i--){
-            revst = revst+str.charAt(i);
+            revstr = revstr+str.charAt(i);
         }
-        System.out.println("Reverse String : "+revst);
-        if(str.equals(revst)){
+        System.out.println("Reverse String : "+revstr);
+        if(str.equals(revstr)){
             System.out.println("Palindrome.");
         }
         else
