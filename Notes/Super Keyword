@@ -1,0 +1,111 @@
+**************   super keyword  *****************
+-> The super keyword in Java is a reference variable which is used to refer immediate parent class object.
+-> The super keyword in Java is used in subclasses to access superclass members (attributes, constructors and methods).
+
+Usage of Java super Keyword
+1.super can be used to refer immediate parent class instance variable.
+2.super can be used to invoke immediate parent class method.
+3.super() can be used to invoke immediate parent class constructor.
+
+1) super is used to refer immediate parent class instance variable.
+-> We can use super keyword to access the data member or field of parent class.
+-> It is used if parent class and child class have same fields.
+Example:
+
+class Animal{
+    String name ="Animal Class";
+}
+class Dog extends Animal{
+    String name="Dog class";
+    void DisplayName(){
+        System.out.println(name);
+        System.out.println(super.name);//super keyword refer parent class variable
+    }
+}
+public class Super1 {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.DisplayName();///call method
+    }
+}
+
+
+2) super can be used to invoke parent class method
+-> The super keyword can also be used to invoke parent class method.
+-> It should be used if subclass contains the same method as parent class.
+-> In other words, it is used if method is overridden.
+
+Example:
+
+class  Animal1{
+    void show(){
+        System.out.println("This is Animal class");
+    }
+}
+class Dog1 extends Animal1{
+    void show(){
+        System.out.println("This is Dog Class");
+    }
+    void Display(){
+        System.out.println("This is Display method inside Dog class");
+         show(); // calling method of same class
+         super.show(); //super keyword invoking parent class method
+    }
+}
+
+public class Super2 {
+    public static void main(String[] args) {
+        Dog1 d =new Dog1(); //create Dog class object
+        d.Display();//calling Display method of Dog class
+    }
+}
+
+
+3) super is used to invoke parent class constructor.
+-> The super keyword can also be used to invoke the parent class constructor.
+Example:
+
+class Animal2{
+    Animal2(){
+        System.out.println("Animal class Constructor.");
+    }
+}
+class Dog2 extends Animal2{
+   Dog2(){
+       super();//optional compiler automatically added super keyword
+       System.out.println("Dog class constructor.");
+   }
+}
+public class Super3 {
+    public static void main(String[] args) {
+        Dog2 d = new Dog2();
+    }
+}
+
+
+Another Example:
+
+class Person{
+    int id;
+    String name;
+    //Parametrized Constructor
+    Person(int id,String name){
+        this.id=id;
+        this.name=name;
+    }
+}
+class Emp extends Person{
+    float salary;
+    //Parametrized constructor
+    Emp(int id,String name,float salary){
+        super(id,name);//reusing parent constructor
+        this.salary=salary;
+    }
+    void display(){System.out.println(id+" | "+name+" | "+salary);}
+}
+public class SuperDemo {
+    public static void main(String[] args) {
+        Emp obj = new Emp(1,"Jitendra",50000);//create emp class object
+        obj.display();
+    }
+}
