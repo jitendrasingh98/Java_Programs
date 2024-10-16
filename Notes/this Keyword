@@ -1,0 +1,39 @@
+****************   this keyword ******************
+
+-> reference variable
+-> this keyword refers to the current object inside a method or a constructor.
+-> 6 Usage of this keyword
+1.this can be used to refer current class instance variable.
+2.Used to invoke current class method.
+3.this() can be used to invoke current class constructor.
+4.this can be passed as an argument in the method call.
+5.this can be passed as an argument in the constructor call.
+6.this can be used to return the current class instance from the method.
+
+Example:
+=> without this keyword
+public class ThisKeywordExample {
+    int num;
+    void show(int num){
+        num=num;//refer local variable that cannot ne assigned
+    }
+
+    public static void main(String[] args) {
+        ThisKeywordExample obj = new ThisKeywordExample();
+        obj.show(25);
+        System.out.println(obj.num);//0 default value
+    }
+
+=> with this keyword:
+public class ThisKeywordExample {
+   int num;
+    void show(int num){
+        this.num=num;//refer instance variable
+    }
+
+    public static void main(String[] args) {
+        ThisKeywordExample obj = new ThisKeywordExample();
+        obj.show(25);
+        System.out.println(obj.num);//25
+    }
+}
